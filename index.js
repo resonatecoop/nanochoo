@@ -11,6 +11,8 @@ var nanobus = require('nanobus')
 var assert = require('assert')
 var xtend = require('xtend')
 
+var Cache = require('./component/cache')
+
 module.exports = Choo
 
 var HISTORY_OBJECT = {}
@@ -42,10 +44,7 @@ function Choo (opts) {
   this._loaded = false
   this._tree = null
 
-  // properties that are part of the API
-  this.router = nanorouter({ curry: true })
-  this.emitter = nanobus('choo.emit')
-
+  // state
   var events = { events: this._events }
   if (this._hasWindow) {
     this.state = window.initialState
@@ -55,6 +54,11 @@ function Choo (opts) {
   } else {
     this.state = events
   }
+
+  // properties that are part of the API
+  this.router = nanorouter({ curry: true })
+  this.emitter = nanobus('choo.emit')
+  this.cache = new Cache(this.state, this.emitter.emit.bind(this.emitter))
 
   // listen for title changes; available even when calling .toString()
   if (this._hasWindow) this.state.title = document.title
@@ -72,12 +76,13 @@ Choo.prototype.route = function (route, handler) {
   var self = this
   this.router.on(route, function (params) {
     return function () {
-      self.state.params = params
-      self.state.route = route
+      var state = self.state
+      var emit = self.emitter.emit.bind(self.emitter)
+      var cache = self.cache.render.bind(self.cache)
+      state.params = params
+      state.route = route
       var routeTiming = nanotiming("choo.route('" + route + "')")
-      var res = handler(self.state, function (eventName, data) {
-        self.emitter.emit(eventName, data)
-      })
+      var res = handler(state, emit, cache)
       routeTiming()
       return res
     }
@@ -135,6 +140,10 @@ Choo.prototype.start = function () {
       })
     }
   }
+
+  // choo-debug replaces the state object with one that's proxied. This makes
+  // sure all state in the cache is also proxied after the module is loaded.
+  this.cache.state = this.state
 
   this.state.href = this._createLocation()
   this.state.query = nanoquery(window.location.search)
