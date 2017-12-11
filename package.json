@@ -42,6 +42,7 @@
     "nanoraf": "^3.0.0",
     "nanorouter": "^2.0.0",
     "nanotiming": "^6.0.0",
+    "on-idle": "^3.1.4",
     "scroll-to-anchor": "^1.0.0",
     "xtend": "^4.0.1"
   },
