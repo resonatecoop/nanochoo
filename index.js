@@ -86,7 +86,9 @@ Choo.prototype.route = function (route, handler) {
       state.params = params
       state.route = route
       var routeTiming = nanotiming("choo.route('" + route + "')")
-      var res = handler(state, emit, cache)
+      var res
+      if (handler.identity) res = cache(handler, state, emit, cache)
+      else res = handler(state, emit, cache)
       routeTiming()
       return res
     }
