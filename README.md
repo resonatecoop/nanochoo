@@ -1,7 +1,7 @@
 <h1 align="center">nanochoo</h1>
 
 <div align="center">
-  ½:steam_locomotive::train::train::train::train:
+  ½🚂🚋🚋🚋🚋
 </div>
 <div align="center">
   <strong><a href='https://github.com/choojs/choo'>choo</a> but half the size</strong>
