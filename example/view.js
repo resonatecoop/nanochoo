@@ -1,4 +1,4 @@
-var html = require('bel') // cannot require choo/html because it's a nested repo
+var html = require('bel')
 
 module.exports = mainView
 
@@ -45,7 +45,7 @@ function Header (state, emit) {
 }
 
 function Footer (state, emit) {
-  var filter = state.href.replace(/^\//, '') || ''
+  var filter = window.location.hash.substr(1)
   var activeCount = state.todos.active.length
   var hasDone = state.todos.done.length
 
@@ -70,14 +70,18 @@ function Footer (state, emit) {
       : ''
 
     var uri = '#' + name.toLowerCase()
-    if (uri === '#all') uri = '/'
+    if (uri === '#all') uri = '#'
     return html`
       <li>
-        <a href=${uri} class=${filterClass}>
+        <a href=${uri} onclick=${onclick} class=${filterClass}>
           ${name}
         </a>
       </li>
     `
+
+    function onclick () {
+      emit('render')
+    }
   }
 
   function deleteCompleted (emit) {
@@ -155,7 +159,7 @@ function TodoItem (todo, emit) {
 }
 
 function TodoList (state, emit) {
-  var filter = state.href.replace(/^\//, '') || ''
+  var filter = window.location.hash.substr(1)
   var items = filter === 'completed'
     ? state.todos.done
     : filter === 'active'
