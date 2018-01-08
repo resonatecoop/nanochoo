@@ -20,15 +20,23 @@
   </a>
 </div>
 
+#### with npm
+
 ```
 > npm install nanochoo
+```
+
+#### with <script>
+
+```html
+<script src='//unpkg.com/nanochoo/dist/bundle.min.js'></script>
 ```
 
 Version numbers equate to choo's: `nanochoo@6.6.1` == `choo@6.6.1`
 
 ## Key differences
 
-* `choo/html` removed - `require('bel')` instead
+* `choo/html` removed - use [bel](https://unpkg.com/bel) (`npm install bel`) directly
 * Removed router:
   * `choo()` no longer takes an `opts` argument
   * `choo.route(location, handler)` replaced by `choo.view(handler)`
