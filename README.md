@@ -37,7 +37,7 @@ numbers don't!
 
 ## Key differences
 
-* `choo/html` removed - use [bel](https://unpkg.com/bel) (`npm install bel`) directly
+* `choo/html` removed - use [bel](https://wzrd.in/standalone/bel@latest) (`npm install bel`) directly
 * Removed router:
   * `choo()` no longer takes an `opts` argument
   * `choo.route(location, handler)` replaced by `choo.view(handler)`
