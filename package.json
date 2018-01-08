@@ -1,7 +1,7 @@
 {
-  "name": "choo",
+  "name": "nanochoo",
   "version": "6.6.1",
-  "description": "A 4kb framework for creating sturdy frontend applications",
+  "description": "choo but half the size",
   "main": "index.js",
   "files": [
     "index.js",
@@ -21,7 +21,7 @@
     "start": "bankai start example",
     "test": "standard && npm run deps && node test.js"
   },
-  "repository": "choojs/choo",
+  "repository": "heyitsmeuralex/nanochoo",
   "keywords": [
     "client",
     "frontend",

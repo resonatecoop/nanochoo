@@ -24,6 +24,8 @@
 > npm install nanochoo
 ```
 
+Version numbers equate to choo's: `nanochoo@6.6.1` == `choo@6.6.1`
+
 ## Key differences
 
 * `choo/html` removed - `require('bel')` instead
@@ -45,7 +47,7 @@ var choo = require('choo')
 
 var app = choo()
 app.use(countStore)
-app.route('/', mainView)
+app.view(mainView) // !!!
 app.mount('body')
 
 function mainView (state, emit) {
