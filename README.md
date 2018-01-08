@@ -32,7 +32,8 @@
 <script src='//unpkg.com/nanochoo/dist/bundle.min.js'></script>
 ```
 
-Version numbers equate to choo's: `nanochoo@6.6.1` == `choo@6.6.1`
+Major and minor version numbers equate to choo's: `choo@^7.0 == nanochoo@^7.0`. Patch
+numbers don't!
 
 ## Key differences
 
