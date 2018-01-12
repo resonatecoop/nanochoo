@@ -1,13 +1,15 @@
 {
   "name": "nanochoo",
-  "version": "6.6.2",
+  "version": "6.6.3",
   "description": "choo but half the size",
   "main": "index.js",
   "files": [
     "index.js",
     "index.d.ts",
     "dist",
-    "example"
+    "example",
+    "lib/server.js",
+    "lib/browser.js"
   ],
   "browser": {
     "./index.js": "./lib/browser.js",
