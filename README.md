@@ -52,7 +52,7 @@ routing-related things, use `choo.view` over `choo.route`, and you'll be fine.
 ## Example
 ```js
 var html = require('bel')
-var choo = require('choo')
+var choo = require('nanochoo')
 
 var app = choo()
 app.use(countStore)
