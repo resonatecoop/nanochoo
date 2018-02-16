@@ -5,6 +5,7 @@ css('todomvc-common/base.css')
 css('todomvc-app-css/index.css')
 
 var app = choo()
+app.use(require('choo-devtools'))
 app.use(require('./store'))
 app.view(require('./view'))
 
