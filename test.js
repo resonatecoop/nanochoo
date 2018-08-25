@@ -1,11 +1,11 @@
 var tape = require('tape')
 var h = require('hyperscript')
 
-var html = require('bel')
-var raw = require('bel/raw')
+var html = require('nanohtml')
+var raw = require('nanohtml/raw')
 var choo = require('./')
 
-tape('should render on the server with bel', function (t) {
+tape('should render on the server with nanohtml', function (t) {
   var app = choo()
   app.view(function (state, emit) {
     var strong = '<strong>Hello filthy planet</strong>'
