@@ -37,7 +37,7 @@ numbers don't!
 
 ## Key differences
 
-* `choo/html` removed - use [bel](https://wzrd.in/standalone/bel@latest) (`npm install bel`) directly
+* `choo/html` removed - use [nanohtml](https://wzrd.in/standalone/nanohtml@latest) (`npm install nanohtml`) directly
 * Removed router:
   * `choo()` no longer takes an `opts` argument
   * `choo.route(location, handler)` replaced by `choo.view(handler)`
@@ -51,7 +51,7 @@ routing-related things, use `choo.view` over `choo.route`, and you'll be fine.
 
 ## Example
 ```js
-var html = require('bel')
+var html = require('nanohtml')
 var choo = require('nanochoo')
 
 var app = choo()
