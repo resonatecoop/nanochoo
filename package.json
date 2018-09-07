@@ -1,6 +1,6 @@
 {
   "name": "nanochoo",
-  "version": "6.8.0",
+  "version": "6.13.0",
   "description": "choo but half the size",
   "main": "index.js",
   "files": [
