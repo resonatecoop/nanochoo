@@ -8,6 +8,7 @@
     "index.d.ts",
     "dist",
     "example",
+    "component/cache.js",
     "lib/server.js",
     "lib/browser.js"
   ],
